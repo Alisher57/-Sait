@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты</title>
+    <link href="style.css" rel="stylesheet">
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button id="backButton">Назад</button>
+    <header>
+        <h1>Контакты</h1>
+    </header>
+    <section>
+        <h2>Наш адрес:</h2>
+        <p>Адрес: Улица Винилова , 123, Город Астана, Страна Казахстан </p>
+    </section>
+    <section>
+        <h2>Как нас найти:</h2>
+        <!-- Вставьте карту или инструкции для поиска -->
+    </section>
+    <section>
+        <h2>Наши контактные данные:</h2>
+        <p>Телефон: +7 (777) 111-1111</p>
+    </section>
+    <footer>
+        <p>Мы всегда готовы вас услышать!</p>
+    </footer>
+
+    <!DOCTYPE html>
+    <html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Быстрая доставка</title>
+        <style>
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            table, th, td {
+                border: 1px solid black;
+            }
+            th, td {
+                padding: 8px;
+                text-align: left;
+            }
+            .filter {
+                margin-bottom: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Заказы на быструю доставку</h1>
+    
+        <!-- Фильтрация по статусу доставки -->
+        <div class="filter">
+            <label for="status">Фильтр по статусу доставки: </label>
+            <select id="status" onchange="filterDeliveries()">
+                <option value="">Все статусы</option>
+                <option value="Доставлено">Доставлено</option>
+                <option value="В пути">В пути</option>
+                <option value="Отменено">Отменено</option>
+            </select>
+        </div>
+    
+        <!-- Таблица доставок -->
+        <table id="deliveriesTable">
+            <thead>
+                <tr>
+                    <th onclick="sortTable(0)">Товар</th>
+                    <th onclick="sortTable(1)">Заказчик</th>
+                    <th onclick="sortTable(2)">Дата заказа</th>
+                    <th onclick="sortTable(3)">Статус</th>
+                    <th onclick="sortTable(4)">Стоимость</th>
+                    <th onclick="sortTable(5)">Время доставки (дни)</th>
+                </tr>
+            </thead>
+            <tbody id="deliveriesList">
+                <!-- Данные будут добавляться динамически -->
+            </tbody>
+        </table>
+    
+        <script>
+            // Данные о доставках (примерный формат, как из XML)
+            const deliveries = [
+                { product: "Ноутбук", customer: "Иванов Иван", order_date: "2024-12-01", status: "Доставлено", price: 50000, delivery_time: 3 },
+                { product: "Телевизор", customer: "Петрова Мария", order_date: "2024-12-02", status: "В пути", price: 30000, delivery_time: 2 },
+                { product: "Смартфон", customer: "Сидоров Сергей", order_date: "2024-12-03", status: "Доставлено", price: 20000, delivery_time: 1 },
+                { product: "Кофеварка", customer: "Кузнецова Алина", order_date: "2024-12-01", status: "Отменено", price: 5000, delivery_time: 4 },
+                { product: "Холодильник", customer: "Орлов Олег", order_date: "2024-12-05", status: "В пути", price: 40000, delivery_time: 3 }
+            ];
+    
+            // Функция для отображения доставок в таблице
+            function displayDeliveries() {
+                const tableBody = document.getElementById("deliveriesList");
+                tableBody.innerHTML = "";
+                deliveries.forEach(delivery => {
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+                        <td>${delivery.product}</td>
+                        <td>${delivery.customer}</td>
+                        <td>${delivery.order_date}</td>
+                        <td>${delivery.status}</td>
+                        <td>${delivery.price} руб.</td>
+                        <td>${delivery.delivery_time}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            }
+    
+            // Функция для сортировки таблицы
+            function sortTable(columnIndex) {
+                const table = document.getElementById("deliveriesTable");
+                const rows = Array.from(table.rows).slice(1);
+                const sortedRows = rows.sort((a, b) => {
+                    const aText = a.cells[columnIndex].textContent;
+                    const bText = b.cells[columnIndex].textContent;
+                    if (columnIndex === 4 || columnIndex === 5) {
+                        return parseFloat(aText) - parseFloat(bText);
+                    }
+                    return aText.localeCompare(bText);
+                });
+                sortedRows.forEach(row => table.appendChild(row));
+            }
+    
+            // Фильтрация по статусу
+            function filterDeliveries() {
+                const statusFilter = document.getElementById("status").value;
+                const filteredDeliveries = statusFilter
+                    ? deliveries.filter(delivery => delivery.status === statusFilter)
+                    : deliveries;
+                displayDeliveries(filteredDeliveries);
+            }
+    
+            // Инициализация отображения доставок
+            displayDeliveries();
+        </script>
+    </body>
+    </html>
+    
+    <script>
+         document.addEventListener('DOMContentLoaded', function () {
+        var table = document.getElementById('myTable');
+        var button = document.getElementById('generateButton');
+
+        function generateRandomNumber() {
+            return Math.floor(Math.random() * 9) + 1;
+        }
+
+        function updateRow(rowElement) {
+            var rowSum = 0;
+
+            for (var j = 0, col; col = rowElement.cells[j]; j++) {
+                var randomNumber = generateRandomNumber();
+                col.textContent = randomNumber;
+
+                // В последнюю ячейку выводим и сгенерированную цифру, и сумму цифр
+                if (j === rowElement.cells.length - 1) {
+                    rowSum += randomNumber;
+                    col.textContent = `${randomNumber}, Сумма: ${rowSum}`;
+                } else {
+                    rowSum += randomNumber;
+                }
+            }
+        }
+
+        button.addEventListener('click', function () {
+            var rows = table.getElementsByTagName('tr');
+
+            for (var i = 0; i < rows.length; i++) {
+                updateRow(rows[i]);
+            }
+        });
+    });
+    </script>
+
+
+
+
+<script>
+    document.getElementById('backButton').addEventListener('click', function() {
+    // Перейти на одну страницу назад
+    history.back();
+});
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </body>
+</html>

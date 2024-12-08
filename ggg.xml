@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deliveries>
+    <delivery>
+        <product>Ноутбук</product>
+        <customer>Иванов Иван</customer>
+        <order_date>2024-12-01</order_date>
+        <status>Доставлено</status>
+        <price>50000</price>
+        <delivery_time>3</delivery_time>
+    </delivery>
+    <delivery>
+        <product>Телевизор</product>
+        <customer>Петрова Мария</customer>
+        <order_date>2024-12-02</order_date>
+        <status>В пути</status>
+        <price>30000</price>
+        <delivery_time>2</delivery_time>
+    </delivery>
+    <delivery>
+        <product>Смартфон</product>
+        <customer>Сидоров Сергей</customer>
+        <order_date>2024-12-03</order_date>
+        <status>Доставлено</status>
+        <price>20000</price>
+        <delivery_time>1</delivery_time>
+    </delivery>
+    <delivery>
+        <product>Кофеварка</product>
+        <customer>Кузнецова Алина</customer>
+        <order_date>2024-12-01</order_date>
+        <status>Отменено</status>
+        <price>5000</price>
+        <delivery_time>4</delivery_time>
+    </delivery>
+    <delivery>
+        <product>Холодильник</product>
+        <customer>Орлов Олег</customer>
+        <order_date>2024-12-05</order_date>
+        <status>В пути</status>
+        <price>40000</price>
+        <delivery_time>3</delivery_time>
+    </delivery>
+</deliveries>

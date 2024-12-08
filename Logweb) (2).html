@@ -1,0 +1,476 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Быстрая доставка</title> 
+    <link href="style.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> _-_-_-_---_-
+
+    
+    <style>
+     
+        h1 {
+            color: darkslateblue;
+        }
+        
+        .tarif, h2 {
+            text-align: right;
+        }
+/* Стиль для подсветки заголовка */
+          .highlight {
+            color: yellowgreen;
+        }
+
+        /* Стиль для элементов с классом "test" при наведении */
+        .test {
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 id="myHeader">Доставка на заказ</h1> 
+    </header>
+
+    <nav class="delivery-text">
+        <a href="#about">О нас</a>
+        <a href="#destinations">Наши услуги</a>
+        <a href="#whowork">Как это работает</a>
+        <a href="#tarif">Тарифы на доставку</a>
+        <a href="1labw3c.html">Контакты</a>
+        <a href="Tz.html">Список заказов</a>
+        <a href="Tz.html">Список заказов</a>
+    </nav>
+
+    <section id="about">
+        <p><h2>О нас</h2></p>
+        <div class="container">
+            "Быстрая доставка" - это современная компания по доставке, которая предоставляет быстрые и надежные услуги доставки грузов и товаров по всей стране. Мы стремимся упростить жизнь наших клиентов, предлагая удобные и эффективные решения для доставки.
+        </div>
+        <img src="i.webp" width="550" ; height="366" alt="Изображение" style="float: left; margin: 25px;">
+    </section>
+
+    <section id="destinations">
+        <p><h3><strong>Наши услуги</strong></h3></p>
+        <p>
+            <ul>
+                <li>Экспресс-доставка: Доставка в рекордо короткие сроки</li>
+                <li>Городская доставка: Покрытие всего города и окрестностей</li>
+                <li>Международная доставка: Получите товары из-за границы без хлопот</li>
+            </ul>
+        </p>
+
+    </section>
+
+    <section id="whowork" ; class="p">
+        <h3><i><strong>Как это работает</strong></i></h3>
+        <p>
+            <ol>
+                <li>Заказ: Выберите товары и укажите адрес доставки.</li>
+                <li>Городская доставка: Оплатите онлайн или наличными при получении.</li>
+                <li>Международная доставка: Мы доставим ваш заказ быстро и надежно.</li>
+            </ol>
+        </p>
+    </section>
+ Создание Vue-приложения
+    <section id="tarif">
+        <h2><tt><strong>Тарифы на доставку</strong></tt></h2>
+        <p class="tarif-text"> Как выбрать лучший тариф на доставку? </p>
+
+
+        <table border="1" class="styled-table" id="myTable">
+            <colgroup>
+                <col style="width: 25%;">
+                <col style="width: 25%;">
+                <col style="width: 25%;">
+                <col style="width: 25%;">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th class="test">Регион</th>
+                    <th class="test">Вид услуги</th>
+                    <th class="test">Вес (кг)</th>
+                    <th class="test">Цена (тенге)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="3">ВКО</td>
+                    <td>Эконом</td>
+                    <td>1-5</td>
+                    <td>1000</td>
+                </tr>
+                <tr>
+                    <td>Стандарт</td>
+                    <td>6-10</td>
+                    <td>1800</td>
+                </tr>
+                <tr>
+                    <td>Экспресс</td>
+                    <td>11-20</td>
+                    <td>2500</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">Алматинская</td>
+                    <td>Стандарт</td>
+                    <td>1-5</td>
+                    <td>1250</td>
+                </tr>
+                <tr>
+                    <td>Экспресс</td>
+                    <td>6-10</td>
+                    <td>2000</td>
+                </tr>
+            </tbody>
+        </table>
+
+        </section>
+
+        <button id="toggleList">Показать/Скрыть список</button>
+        <h1>Расчет стоимости доставки</h1>
+
+Добавление новой логики с использованием Vue.js
+        <label for="regionSelect">Выберите область:</label>
+        <select id="regionSelect">
+            <option value="ВКО">ВКО</option>
+            <option value="Астана">Астана</option>
+        </select>
+
+        <label for="serviceSelect">Выберите тип услуги:</label>
+        <select id="serviceSelect">
+            <option value="Эконом">Эконом</option>
+            <option value="Стандарт">Стандарт</option>
+            <option value="Экспресс">Экспресс</option>
+        </select>
+
+        <label for="weightInput">Введите вес (кг):</label>
+        <input type="number" id="weightInput" min="0" step="0.01">
+
+        <button onclick="calculatePrice()">Рассчитать</button>
+
+        <p id="result"></p>
+
+        <script src="scrypt.js"></script>
+
+
+        <footer>
+            <p>&copy; 2023 Быстрая доставка. Все права защищены.</p>
+        </footer>
+
+    
+
+    <div id="animation-container">
+        <div id="package"></div>
+    </div>
+    
+
+    
+<canvas id="myCanvas"  width="500" height="500"></canvas>
+<script>
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+
+    const numCubes = 18; // Количество кубов
+    const cubeSize = 200; // Размер каждого куба
+    const rotationIncrement = 5; // Угол вращения для каждого куба
+    const pauseRotation = 90; // Пауза после 90 градусов вращения
+    const speed = 4; // Скорость анимации
+
+    let angle = 0; // Текущий угол вращения
+    let cubes = [];
+
+    for (let i = 0; i < numCubes; i++) {
+      cubes.push({
+        x: canvas.width / 2,
+        y: canvas.height / 2,
+        angle: 0,
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      for (let i = 0; i < cubes.length; i++) {
+        const cube = cubes[i];
+        ctx.save();
+        ctx.translate(cube.x, cube.y);
+        ctx.rotate((cube.angle * Math.PI) / 180);
+        ctx.fillStyle = "black";
+        ctx.fillRect(-cubeSize / 2, -cubeSize / 2, cubeSize, cubeSize);
+        ctx.restore();
+        
+        cube.angle += rotationIncrement;
+      }
+
+      angle += rotationIncrement;
+
+      if (angle >= pauseRotation) {
+        angle = 0;
+        setTimeout(() => {
+          requestAnimationFrame(draw);
+        }, 1000); // Пауза после 90 градусов вращения
+      } else {
+        setTimeout(() => {
+          requestAnimationFrame(draw);
+        }, 1000 / speed);
+      }
+    };
+
+    draw();
+  </script>
+  
+  
+
+<script>
+alert('Здравствуйте на нашем сайте компании по доставке "Быстрая доставка"');
+
+// Функция, которая будет выполнена через 5 секунд
+function executeAfter5Seconds() {
+    // Создание новой секции
+    var newSection = document.createElement('section');
+    newSection.id = 'newSection';
+    newSection.innerHTML = '<h3> О компании </h3><p>Компания "Быстрая доставка" - ваш надежный партнер в мире логистики и доставки. Наша компания была основана с целью обеспечить клиентов быстрым, надежным и удобным способом доставки товаров и услуг. Мы гордимся нашим богатым опытом и высокими стандартами обслуживания, которые помогли нам завоевать доверие клиентов по всему миру.</p>';
+    // Вставка новой секции перед элементом с id "whowork"
+    var whoworkSection = document.getElementById('whowork');
+    whoworkSection.parentNode.insertBefore(newSection, whoworkSection);
+    // Удаление элемента с id "myCanvas"
+    var tarifSection = document.getElementById('myCanvas');
+    tarifSection.parentNode.removeChild(tarifSection);
+    // Настройка изображения
+    var image = document.querySelector('img');
+    image.setAttribute('src', 'hpost.jpg');
+    image.style.float = 'right';
+    image.style.margin = '25px';
+    image.style.border = '1px solid black';
+    image.style.padding = '10px';
+    image.style.boxShadow = '2px 2px 5px ';
+   
+    console.log(navigator.appName);
+    console.log(navigator.appVersion);
+    console.log(navigator.appCodeName);
+    console.log(navigator.userAgent);
+    console.log(navigator.platform);
+}
+
+// Запуск выполнения функции через 5 секунд
+setTimeout(executeAfter5Seconds, 5000);
+</script>
+
+<script>
+  // Изменение цвета заголовка при клике
+  $(document).ready(function(){
+      $(":header").click(function(){
+          $(this).toggleClass("highlight" , "slow");
+          
+      });
+  });
+
+  //  Скрытие списка при двойном клике
+  $(document).ready(function(){
+      $(" .styled-table th").dblclick(function(){
+          $("#tarif").hide("fold", 1000);
+
+      });
+  });
+
+  //  Подчеркивание элементов с классом "test" при наведении
+  $(document).ready(function(){
+            $(".test").mouseenter(function(){
+                $(this).css("text-decoration","underline" ); // убираем подчеркивание при наведении
+            });
+
+            $(".test").mouseleave(function(){
+                $(this).css("text-decoration", "none"); // восстанавливаем подчеркивание при уходе курсора
+            });
+        });
+
+  //  Переключение отображения/скрытия списка при клике на кнопку
+  $(document).ready(function(){
+      $("#toggleList").click(function(){
+          $("#tarif").toggle("fade" ,1000);
+      });
+  });
+
+  $(document).ready(function() {
+      // Пример: выделить первую кнопку в списке
+      $("button:first").css("color", "red");
+    });
+</script>
+------------------------------------------------------------
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дабавит еще одну товар</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            margin: 20px;
+            text-align: center;
+            line-height: 200px;
+            font-weight: bold;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="header">Дабавит еще одну посылку</h1>
+    <button id="addBox">Добавить посылку</button>
+    <button id="removeBox">Убрать посылку</button>
+    <button id="changeStyle">Быстрая доставка</button>
+    <button id="showEffect">Показать товары</button>
+    <button id="hideEffect">Отправит товары  на склад</button>
+    <div id="content">
+        <div class="box">Товары</div>
+        <div class="box hidden">Товар номер 2</div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // Изменение DOM
+            $("#addBox").click(function () {
+                $("#content").append('<div class="box">Новый элемент</div>'); // Добавление нового элемента
+            });
+
+            $("#removeBox").click(function () {
+                $(".box:last").remove(); // Удаление последнего элемента
+            });
+
+            // Изменение контента
+            $(".box").click(function () {
+                $(this).text("Отправлено!"); // Изменение текста внутри элемента
+            });
+
+            // Изменение CSS-стилей
+            $("#changeStyle").click(function () {
+                $(".box").css({
+                    "background-color": "lightgreen",
+                    "border": "2px solid green",
+                    "border-radius": "10px"
+                }); // Изменение нескольких стилей
+            });
+
+            // Методы визуальных эффектов
+            $("#showEffect").click(function () {
+                $(".hidden").fadeIn(1000); // Показать скрытые элементы
+            });
+
+            $("#hideEffect").click(function () {
+                $(".box:not(.hidden)").fadeOut(1000); // Скрыть элементы, которые не имеют класс "hidden"
+            });
+
+            // Обработка событий
+            $(".box").mouseenter(function () {
+                $(this).css("box-shadow", "5px 5px 10px gray"); // Добавить тень при наведении
+            });
+
+            $(".box").mouseleave(function () {
+                $(this).css("box-shadow", "none"); // Убрать тень при уходе курсора
+            });
+        });
+    </script>
+</body>
+
+
+
+-----------------------------
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Товары </title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+<body>
+
+  <!-- Контейнер для первого примера (клик по кнопке и вывод результата) -->
+  <div id="app1">
+    <button @click="handleClick">Быстрая доставка</button>
+    <p>{{ message }}</p>
+    <p>Будет через: {{ result }}</p>
+  </div>
+
+  <!-- Контейнер для второго примера (вывод сообщения в консоль) -->
+  <div id="app2">
+    <button @click="logMessage">Вывести сообщение в консоль</button>
+  </div>
+
+  <!-- Контейнер для третьего примера (математическая операция) -->
+  <div id="app3">
+    <input v-model="num1" type="number" placeholder="Введите первое число">
+    <input v-model="num2" type="number" placeholder="Введите второе число">
+    <button @click="addNumbers">Сложить</button>
+    <p>Результат сложения: {{ sum }}</p>
+  </div>
+
+  <script>
+    // Пример 1: Интеграция Vue и обработка клика
+    new Vue({
+      el: '#app1',
+      data: {
+        message: 'Отправит!',
+        result: 0
+      },
+      methods: {
+        handleClick() {
+          this.message = 'Отправлено!';
+          this.result = this.calculateSum(3, 2);
+        },
+        calculateSum(a, b) {
+          return a + b;
+        }
+      }
+    });
+
+    // Пример 2: Вывод сообщения в консоль
+    new Vue({
+      el: '#app2',
+      methods: {
+        logMessage() {
+          console.log('Привет, это сообщение из Vue!');
+        }
+      }
+    });
+
+    // Пример 3: Математическая операция сложения
+    new Vue({
+      el: '#app3',
+      data: {
+        num1: 0,
+        num2: 0,
+        sum: 0
+      },
+      methods: {
+        addNumbers() {
+          this.sum = parseInt(this.num1) + parseInt(this.num2);
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
+
+
+
+
+
+
+</body>
+</html>
